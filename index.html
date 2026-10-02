@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -726,4 +725,1106 @@
             background-color: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(4px);
             z-index: 1000;
-            display
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background-color: var(--bg-main);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 680px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+            transform: scale(0.95);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-main);
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background-color: var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        /* Profile Modal details */
+        .profile-header-meta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 110px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+        }
+
+        .action-buttons-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-call {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #FFFFFF;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Form styling inside Modal */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            background-color: var(--bg-main);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            background-color: var(--text-dark);
+            color: #FFFFFF;
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 50px 0 30px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            margin-top: 12px;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 992px) {
+            .search-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .search-btn-wrapper {
+                grid-column: span 2;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero-title {
+                font-size: 30px;
+            }
+            .hero-subtitle {
+                font-size: 15px;
+            }
+            .search-container {
+                grid-template-columns: 1fr;
+            }
+            .search-btn-wrapper {
+                grid-column: span 1;
+            }
+            .technicians-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <div class="logo-text">خدماتـ<span>ك</span></div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#" class="active">الرئيسية</a></li>
+                <li><a href="#categoriesSection">المهن والتصنيفات</a></li>
+                <li><a href="#techniciansSection">الفنيون المتاحون</a></li>
+                <li><a href="#howItWorks">كيف يعمل التطبيق</a></li>
+                <li><a href="javascript:void(0)" onclick="openReadmeModal()">دليل GitHub</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-primary" onclick="openAddModal()">
+                    <i class="fa-solid fa-plus"></i> أضف مهنتك
+                </button>
+                <button class="menu-toggle" id="menuToggleBtn" onclick="toggleMobileDrawer()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+        <a href="#" onclick="toggleMobileDrawer()">الرئيسية</a>
+        <a href="#categoriesSection" onclick="toggleMobileDrawer()">المهن والتصنيفات</a>
+        <a href="#techniciansSection" onclick="toggleMobileDrawer()">الفنيون المتاحون</a>
+        <a href="#howItWorks" onclick="toggleMobileDrawer()">كيف يعمل التطبيق</a>
+        <a href="javascript:void(0)" onclick="toggleMobileDrawer(); openReadmeModal();">دليل نشر GitHub</a>
+        <button class="btn-primary" style="margin-top: 10px; justify-content: center;" onclick="toggleMobileDrawer(); openAddModal();">
+            <i class="fa-solid fa-plus"></i> أضف مهنتك الآن
+        </button>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <i class="fa-solid fa-sparkles"></i> المنصة الأولى للخدمات والمهن في العراق
+            </div>
+            <h1 class="hero-title">كل خدماتك المنزلية والمهنية، <span>أقرب إليك</span></h1>
+            <p class="hero-subtitle">اعثر على أفضل الفنيين والمتخصصين الموثوقين في محافظتك، وتواصل معهم مباشرة بدون وسائط أو عمولات.</p>
+
+            <div class="search-container">
+                <div class="search-field">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="شنو الخدمة اللي تحتاجها؟ (مثلاً: كهربائي، سباك)" oninput="handleSearchInput()">
+                </div>
+
+                <div class="search-field">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <select id="govSelect" onchange="handleGovChange()">
+                        <option value="">جميع المحافظات</option>
+                    </select>
+                </div>
+
+                <div class="search-field">
+                    <i class="fa-solid fa-map-pin"></i>
+                    <select id="regionSelect" onchange="handleRegionChange()">
+                        <option value="">جميع المناطق</option>
+                    </select>
+                </div>
+
+                <div class="search-btn-wrapper">
+                    <button class="btn-primary" style="width: 100%; height: 46px; justify-content: center;" onclick="triggerSearch()">
+                        <i class="fa-solid fa-magnifying-glass"></i> بحث
+                    </button>
+                </div>
+            </div>
+
+            <div class="quick-tags">
+                <span>بحث سريع:</span>
+                <button class="tag-btn" onclick="quickFilter('كهربائي')">كهربائي</button>
+                <button class="tag-btn" onclick="quickFilter('سباك')">سباك</button>
+                <button class="tag-btn" onclick="quickFilter('صيانة تبريد وتدفئة')">تكييف وتبريد</button>
+                <button class="tag-btn" onclick="quickFilter('صباغ')">صباغ وديكور</button>
+                <button class="tag-btn" onclick="quickFilter('خلفة بناء')">خلفة بناء</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="categoriesSection">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">الأقسام والمهن الشائعة</h2>
+                    <p class="section-desc">اختر المجال الذي تحتاجه لاستعراض الفنيين المتوفرين مباشرة</p>
+                </div>
+            </div>
+
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Injected dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="techniciansSection" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">الفنيون والمتخصصون</h2>
+                    <p class="section-desc">تصفح قوائم الفنيين المعتمَدين واطلع على تقييماتهم ومعرض أعمالهم</p>
+                </div>
+            </div>
+
+            <div class="filter-status-bar">
+                <div class="filter-info">
+                    <span>نتائج البحث:</span>
+                    <span class="badge-count" id="resultsCount">0</span>
+                    <span id="activeFilterLabel" style="color: var(--text-muted); font-size: 13px;">(جميع الفنيين)</span>
+                </div>
+                <button class="btn-clear-filters" onclick="resetAllFilters()">
+                    <i class="fa-solid fa-rotate-left"></i> مسح الفلاتر
+                </button>
+            </div>
+
+            <div class="technicians-grid" id="techniciansGrid">
+                <!-- Technicians Cards Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section how-it-works" id="howItWorks">
+        <div class="container">
+            <div class="section-header" style="text-align: center; display: block;">
+                <h2 class="section-title">كيف يعمل تطبيق خدماتك؟</h2>
+                <p class="section-desc">ثلاث خطوات بسيطة للتواصل مع الفني المناسب</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">ابحث عن الخدمة</h3>
+                    <p class="step-desc">حدد نوع المهنة أو الخدمة واختر محافظتك ومنطقتك للحصول على أقرب الفنيين.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">استعرض الملف الشخصي</h3>
+                    <p class="step-desc">اطلع على معرض صور الأعمال السابقة، التقييمات، وسائل الدفع، وطبيعة الخبرة.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">تواصل مباشرة</h3>
+                    <p class="step-desc">اتصل هاتفياً أو راسل الفني عبر واتساب للاتفاق على التفاصيل والسعر بشكل مباشر.</p>
+                </div>
+            </div>
+
+            <div class="cta-banner">
+                <div class="cta-content">
+                    <h2>هل أنت صاحب مهنة أو فني محترف؟</h2>
+                    <p>انضم إلى منصة خدماتك مجاناً وسجّل بياناتك ليصلك مئات الزبائن في منطقتك يومياً بدون أي استقطاعات.</p>
+                </div>
+                <button class="btn-primary" style="background-color: #FFFFFF; color: var(--text-dark); border: none;" onclick="openAddModal()">
+                    <i class="fa-solid fa-user-plus"></i> سجّل مهنتك مجاناً
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <div class="logo-text">خدماتـ<span>ك</span></div>
+                    </div>
+                    <p>دليل خدمي تفاعلي يهدف لربط الزبائن العراقيين بأصحاب المهن والفنيين في كافة المحافظات بكل سهولة وشفافية.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>الروابط السريعة</h4>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#categoriesSection">أقسام المهن</a></li>
+                        <li><a href="#techniciansSection">قائمة الفنيين</a></li>
+                        <li><a href="#howItWorks">طريقة العمل</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>أبرز المهن</h4>
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="quickFilter('كهربائي')">كهربائي منازل</a></li>
+                        <li><a href="javascript:void(0)" onclick="quickFilter('سباك')">سباكة وصحية</a></li>
+                        <li><a href="javascript:void(0)" onclick="quickFilter('صيانة تبريد وتدفئة')">تبريد وتكييف</a></li>
+                        <li><a href="javascript:void(0)" onclick="quickFilter('صباغ')">صبغ وديكورات</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>معلومات النموذج</h4>
+                    <ul>
+                        <li><span style="color: var(--accent-green); font-weight: 600;">✓ نموذج تجريبي (Demo)</span></li>
+                        <li><span>جاهز للنشر على GitHub Pages</span></li>
+                        <li><span>تصميم متجاوب RTL بالكامل</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 تطبيق خدماتك — جميع الحقوق محفوظة | نموذج عرض تجريبي للعملاء</p>
+                <p>مطور بلغة HTML & Vanilla JS بدون سيرفر خارجي</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="profileModal" onclick="closeModalOnOutsideClick(event, 'profileModal')">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">تفاصيل الفني</h3>
+                <button class="modal-close" onclick="closeModal('profileModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="profileModalBody">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="addModal" onclick="closeModalOnOutsideClick(event, 'addModal')">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">تسجيل فني / إضافة مهنة جديدة</h3>
+                <button class="modal-close" onclick="closeModal('addModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="addProfessionForm" onsubmit="handleAddFormSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label">الاسم الكامل *</label>
+                        <input type="text" class="form-control" id="formName" placeholder="مثال: أحمد علي الكرخي" required>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label">رقم الهاتف التجريبي *</label>
+                            <input type="tel" class="form-control" id="formPhone" placeholder="0770XXXXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">المهنة / التخصص *</label>
+                            <select class="form-control" id="formTrade" required>
+                                <option value="">اختر المهنة...</option>
+                                <option value="كهربائي">كهربائي</option>
+                                <option value="سباك">سباك / صحيات</option>
+                                <option value="صباغ">صباغ / ديكورات</option>
+                                <option value="خلفة بناء">خلفة بناء</option>
+                                <option value="تفصيخ وشد غرف">تفصيخ وشد غرف</option>
+                                <option value="صيانة تبريد وتدفئة">صيانة تبريد وتدفئة</option>
+                                <option value="نجار">نجار</option>
+                                <option value="فني أجهزة منزلية">فني أجهزة منزلية</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label">المحافظة *</label>
+                            <select class="form-control" id="formGov" onchange="handleFormGovChange()" required>
+                                <option value="">اختر المحافظة...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">المنطقة *</label>
+                            <select class="form-control" id="formRegion" required>
+                                <option value="">اختر المنطقة...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">نبذة عن خبرتك وخدماتك *</label>
+                        <textarea class="form-control" id="formBio" rows="3" placeholder="اكتب وصفاً مختصراً لخبرتك والخدمات التي تقدمها للزبائن..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">رابط صورة الشخصية (اختياري)</label>
+                        <input type="url" class="form-control" id="formAvatar" placeholder="https://example.com/photo.jpg">
+                    </div>
+
+                    <div style="background-color: var(--accent-amber-bg); border: 1px solid #FDE68A; padding: 12px; border-radius: var(--radius-sm); font-size: 13px; color: #92400E; margin-bottom: 20px;">
+                        <i class="fa-solid fa-circle-info"></i> <strong>ملاحظة:</strong> هذه البيانات تجريبية وسيتم إضافتها مؤقتاً إلى نتائج البحث في الجلسة الحالية دون حفظ دائم.
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fa-solid fa-check"></i> تأكيد إضافة المهنة
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="readmeModal" onclick="closeModalOnOutsideClick(event, 'readmeModal')">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">دليل النشر والتعديل على GitHub Pages</h3>
+                <button class="modal-close" onclick="closeModal('readmeModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" style="font-size: 14px; line-height: 1.8;">
+                <h4 style="color: var(--primary); margin-bottom: 8px;">🚀 كيفية رفع المشروع على GitHub Pages:</h4>
+                <ol style="padding-right: 20px; margin-bottom: 16px;">
+                    <li>قم بإنشاء مستودع جديد (Repository) باسم <code>khadamatk-demo</code> على GitHub.</li>
+                    <li>ارفع ملف <code>index.html</code> مباشرة في الجذر الرئيسي (Root Directory).</li>
+                    <li>انتقل إلى <strong>Settings</strong> ➔ <strong>Pages</strong> في مستودع GitHub.</li>
+                    <li>في قسم <strong>Source</strong>، اختر فرع <code>main</code> والمجلد <code>/ (root)</code> ثم اضغط <strong>Save</strong>.</li>
+                    <li>سيصبح موقع التطبيق التفاعلي المباشر متوفراً خلال ثوانٍ عبر الرابط المخصص!</li>
+                </ol>
+                <div style="background-color: var(--bg-tertiary); padding: 12px; border-radius: var(--radius-sm); font-weight: 500;">
+                    💡 <strong>مميزات المشروع:</strong> خفيف الوزن، لا يحتاج سيرفر أو Node.js، يعتمد على Vanilla JavaScript وCSS مخصص للغة العربية RTL.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        const GOVERNORATES_DATA = {
+            "بغداد": ["الكرادة", "المنصور", "الزيونة", "الاعظمية", "الشعلة", "السيدية", "الشعب", "الدورة"],
+            "البصرة": ["الجزائر", "الجبيلة", "الطويسة", "العشار", "حي الحسين"],
+            "أربيل": ["عينكاوة", "مركة صور", "اسكان", "شورش"],
+            "النجف الأشرف": ["حي الحسين", "الامير", "الزهراء", "الكوفة"],
+            "كربلاء المقدسة": ["حي الحسين", "حي الموظفين", "شارع السناتر"],
+            "الموصل": ["الزهور", "المجموعات", "حي العربي"],
+            "بابل": ["الحلة - المركز", "حي النادر", "المحاويل"]
+        };
+
+        const INITIAL_CATEGORIES = [
+            { name: "كهربائي", icon: "fa-bolt", count: 12 },
+            { name: "سباك", icon: "fa-faucet-drip", count: 9 },
+            { name: "صباغ", icon: "fa-paint-roller", count: 8 },
+            { name: "خلفة بناء", icon: "fa-trowel-bricks", count: 15 },
+            { name: "تفصيخ وشد غرف", icon: "fa-bed", count: 6 },
+            { name: "صيانة تبريد وتدفئة", icon: "fa-snowflake", count: 11 },
+            { name: "نجار", icon: "fa-hammer", count: 7 },
+            { name: "فني أجهزة منزلية", icon: "fa-plug", count: 10 }
+        ];
+
+        let state = {
+            searchQuery: "",
+            selectedCategory: "",
+            selectedGov: "",
+            selectedRegion: "",
+            technicians: [
+                {
+                    id: 1,
+                    name: "علي الكرخي",
+                    trade: "كهربائي",
+                    gov: "بغداد",
+                    region: "الكرادة",
+                    phone: "07701234567",
+                    rating: 4.9,
+                    reviewCount: 38,
+                    isAvailable: true,
+                    avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&auto=format&fit=crop&q=80",
+                    bio: "متخصص في تأسيس وصيانة شبكات الكهرباء المنزلية والصناعية مع خبرة تزيد عن 8 سنوات. حل كافة مشاكل الشورت وتوازن الأحمال.",
+                    payments: ["زين كاش", "نقدي"],
+                    gallery: [
+                        "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&q=80",
+                        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80",
+                        "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&q=80"
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "حيدر الجبوري",
+                    trade: "سباك",
+                    gov: "بغداد",
+                    region: "المنصور",
+                    phone: "07809876543",
+                    rating: 4.8,
+                    reviewCount: 29,
+                    isAvailable: true,
+                    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+                    bio: "تأسيس شبكات المياء والمجاري باستخدام أحدث الأجهزة الحرارية. معالجة التنسيم وتسريب المياه بدقة عالية بدون تخريب.",
+                    payments: ["نقدي", "ماستر كارد"],
+                    gallery: [
+                        "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=80",
+                        "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=400&q=80"
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "أحمد العبيدي",
+                    trade: "صيانة تبريد وتدفئة",
+                    gov: "البصرة",
+                    region: "الجزائر",
+                    phone: "07711122334",
+                    rating: 5.0,
+                    reviewCount: 45,
+                    isAvailable: true,
+                    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+                    bio: "غسيل وشحن غاز وصيانة السبالت والكونديشنات المركزية. ضمان حقيقي على القطع والصيانة وتوفر قطع غيار أصلية.",
+                    payments: ["زين كاش", "نقدي"],
+                    gallery: [
+                        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
+                        "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&q=80"
+                    ]
+                },
+                {
+                    id: 4,
+                    name: "عمر أربيللي",
+                    trade: "تفصيخ وشد غرف",
+                    gov: "أربيل",
+                    region: "عينكاوة",
+                    phone: "07505556677",
+                    rating: 4.7,
+                    reviewCount: 22,
+                    isAvailable: false,
+                    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+                    bio: "تفصيخ وتغليف ونقل وتجميع غرف النوم التركية والمحلية بمهارة فائقة بدون خدوش مع خدمة النقل والشد.",
+                    payments: ["نقدي"],
+                    gallery: [
+                        "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=400&q=80"
+                    ]
+                },
+                {
+                    id: 5,
+                    name: "كرار الحلي",
+                    trade: "صباغ",
+                    gov: "النجف الأشرف",
+                    region: "حي الحسين",
+                    phone: "07812348899",
+                    rating: 4.9,
+                    reviewCount: 31,
+                    isAvailable: true,
+                    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80",
+                    bio: "أصباغ حديثة، جوتن، ديكورات بديل الرخام وبديل الخشب، ورق جدران وثلاثي الأبعاد بإتقان ونظافة في العمل.",
+                    payments: ["زين كاش", "نقدي"],
+                    gallery: [
+                        "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=400&q=80",
+                        "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&q=80"
+                    ]
+                },
+                {
+                    id: 6,
+                    name: "أبو فهد البابلي",
+                    trade: "خلفة بناء",
+                    gov: "بابل",
+                    region: "الحلة - المركز",
+                    phone: "07709988776",
+                    rating: 4.8,
+                    reviewCount: 50,
+                    isAvailable: true,
+                    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+                    bio: "بناء دور سكنية، لبخ، سيراميك، وترميمات عامة. خبرة طويلة وشغل حسب الخرائط الهندسية بدقة عالية.",
+                    payments: ["نقدي"],
+                    gallery: [
+                        "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?w=400&q=80"
+                    ]
+                }
+            ]
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            populateGovDropdowns();
+            renderCategories();
+            renderTechnicians();
+        });
+
+        function populateGovDropdowns() {
+            const govSelect = document.getElementById('govSelect');
+            const formGov = document.getElementById('formGov');
+            
+            Object.keys(GOVERNORATES_DATA).forEach(gov => {
+                const opt1 = document.createElement('option');
+                opt1.value = gov;
+                opt1.textContent = gov;
+                govSelect.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = gov;
+                opt2.textContent = gov;
+                formGov.appendChild(opt2);
+            });
+        }
+
+        function handleGovChange() {
+            const gov = document.getElementById('govSelect').value;
+            state.selectedGov = gov;
+            state.selectedRegion = "";
+
+            const regionSelect = document.getElementById('regionSelect');
+            regionSelect.innerHTML = '<option value="">جميع المناطق</option>';
+
+            if (gov && GOVERNORATES_DATA[gov]) {
+                GOVERNORATES_DATA[gov].forEach(reg => {
+                    const opt = document.createElement('option');
+                    opt.value = reg;
+                    opt.textContent = reg;
+                    regionSelect.appendChild(opt);
+                });
+            }
+            renderTechnicians();
+        }
+
+        function handleFormGovChange() {
+            const gov = document.getElementById('formGov').value;
+            const regionSelect = document.getElementById('formRegion');
+            regionSelect.innerHTML = '<option value="">اختر المنطقة...</option>';
+
+            if (gov && GOVERNORATES_DATA[gov]) {
+                GOVERNORATES_DATA[gov].forEach(reg => {
+                    const opt = document.createElement('option');
+                    opt.value = reg;
+                    opt.textContent = reg;
+                    regionSelect.appendChild(opt);
+                });
+            }
+        }
+
+        function handleRegionChange() {
+            state.selectedRegion = document.getElementById('regionSelect').value;
+            renderTechnicians();
+        }
+
+        function handleSearchInput() {
+            state.searchQuery = document.getElementById('searchInput').value.trim();
+            renderTechnicians();
+        }
+
+        function triggerSearch() {
+            renderTechnicians();
+            document.getElementById('techniciansSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function quickFilter(tradeName) {
+            state.selectedCategory = tradeName;
+            updateCategoryCardsUI();
+            renderTechnicians();
+            document.getElementById('techniciansSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderCategories() {
+            const grid = document.getElementById('categoriesGrid');
+            grid.innerHTML = INITIAL_CATEGORIES.map(cat => `
+                <div class="category-card ${state.selectedCategory === cat.name ? 'active' : ''}" onclick="selectCategory('${cat.name}')">
+                    <div class="category-icon">
+                        <i class="fa-solid ${cat.icon}"></i>
+                    </div>
+                    <div class="category-name">${cat.name}</div>
+                </div>
+            `).join('');
+        }
+
+        function selectCategory(catName) {
+            if (state.selectedCategory === catName) {
+                state.selectedCategory = "";
+            } else {
+                state.selectedCategory = catName;
+            }
+            updateCategoryCardsUI();
+            renderTechnicians();
+        }
+
+        function updateCategoryCardsUI() {
+            renderCategories();
+        }
+
+        function getFilteredTechnicians() {
+            return state.technicians.filter(tech => {
+                const matchesSearch = !state.searchQuery || 
+                    tech.name.includes(state.searchQuery) || 
+                    tech.trade.includes(state.searchQuery) ||
+                    tech.bio.includes(state.searchQuery);
+
+                const matchesCat = !state.selectedCategory || tech.trade === state.selectedCategory;
+                const matchesGov = !state.selectedGov || tech.gov === state.selectedGov;
+                const matchesRegion = !state.selectedRegion || tech.region === state.selectedRegion;
+
+                return matchesSearch && matchesCat && matchesGov && matchesRegion;
+            });
+        }
+
+        function renderTechnicians() {
+            const grid = document.getElementById('techniciansGrid');
+            const filtered = getFilteredTechnicians();
+            
+            document.getElementById('resultsCount').textContent = filtered.length;
+
+            let filterTextParts = [];
+            if (state.selectedCategory) filterTextParts.push(`المهنة: ${state.selectedCategory}`);
+            if (state.selectedGov) filterTextParts.push(`المحافظة: ${state.selectedGov}`);
+            if (state.selectedRegion) filterTextParts.push(`المنطقة: ${state.selectedRegion}`);
+            if (state.searchQuery) filterTextParts.push(`نص البحث: "${state.searchQuery}"`);
+
+            document.getElementById('activeFilterLabel').textContent = filterTextParts.length > 0 
+                ? `(${filterTextParts.join(' | ')})` 
+                : '(جميع الفنيين)';
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon"><i class="fa-solid fa-user-slash"></i></div>
+                        <h3 class="empty-title">ما لكينا فنيين يطابقون بحثك!</h3>
+                        <p class="empty-desc">جرّب تغيير كلمات البحث أو مسح الفلاتر المختارة لمشاهدة جميع المهن المتاحة.</p>
+                        <button class="btn-primary" onclick="resetAllFilters()">
+                            <i class="fa-solid fa-rotate-left"></i> عرض جميع الفنيين
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(tech => `
+                <div class="tech-card">
+                    <div>
+                        <div class="tech-header">
+                            <img src="${tech.avatar}" alt="${tech.name}" class="tech-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(tech.name)}&background=2563EB&color=fff'">
+                            <div class="tech-main-info">
+                                <div class="tech-name-row">
+                                    <h3 class="tech-name">${tech.name}</h3>
+                                    ${tech.isAvailable ? '<span class="badge-available">متاح</span>' : ''}
+                                </div>
+                                <span class="tech-trade">${tech.trade}</span>
+                                <div class="tech-location">
+                                    <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
+                                    ${tech.gov} — ${tech.region}
+                                </div>
+                                <div class="tech-rating">
+                                    <span class="stars"><i class="fa-solid fa-star"></i></span>
+                                    <span class="rating-num">${tech.rating}</span>
+                                    <span class="rating-count">(${tech.reviewCount} تقييم)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            ${tech.bio}
+                        </p>
+                    </div>
+
+                    <div class="tech-footer">
+                        <div class="payment-chips">
+                            ${tech.payments.map(p => `<span class="chip">${p}</span>`).join('')}
+                        </div>
+                        <button class="btn-secondary" style="padding: 6px 14px; font-size: 13px;" onclick="openProfileModal(${tech.id})">
+                            عرض الملف
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function resetAllFilters() {
+            state.searchQuery = "";
+            state.selectedCategory = "";
+            state.selectedGov = "";
+            state.selectedRegion = "";
+
+            document.getElementById('searchInput').value = "";
+            document.getElementById('govSelect').value = "";
+            document.getElementById('regionSelect').innerHTML = '<option value="">جميع المناطق</option>';
+
+            updateCategoryCardsUI();
+            renderTechnicians();
+            showToast("تم مسح جميع الفلاتر بنجاح");
+        }
+
+        function openProfileModal(id) {
+            const tech = state.technicians.find(t => t.id === id);
+            if (!tech) return;
+
+            const modalBody = document.getElementById('profileModalBody');
+            modalBody.innerHTML = `
+                <div class="profile-header-meta">
+                    <img src="${tech.avatar}" class="profile-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(tech.name)}&background=2563EB&color=fff'">
+                    <div>
+                        <h2 style="font-size: 22px; font-weight: 800; color: var(--text-dark);">${tech.name}</h2>
+                        <span class="tech-trade" style="font-size: 13px; margin-top: 4px;">${tech.trade}</span>
+                        <div class="tech-location" style="margin-top: 6px; font-size: 14px;">
+                            <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
+                            ${tech.gov} — ${tech.region}
+                        </div>
+                        <div class="tech-rating" style="margin-top: 4px;">
+                            <span class="stars"><i class="fa-solid fa-star"></i></span>
+                            <span class="rating-num">${tech.rating}</span>
+                            <span class="rating-count">(${tech.reviewCount} تقييمات معتمدة)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">نبذة عن الخدمات:</h4>
+                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.7;">${tech.bio}</p>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 8px;">طرق الدفع المقبولة:</h4>
+                    <div style="display: flex; gap: 8px;">
+                        ${tech.payments.map(p => `<span class="chip" style="font-size: 12px; padding: 4px 12px; background-color: var(--primary-light); color: var(--primary); font-weight: 600;">${p}</span>`).join('')}
+                    </div>
+                </div>
+
+                ${tech.gallery && tech.gallery.length > 0 ? `
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 10px;">معرض نماذج الأعمال السابق (صور):</h4>
+                        <div class="gallery-grid">
+                            ${tech.gallery.map(img => `<img src="${img}" class="gallery-item" alt="عمل سابق" onerror="this.src='https://placehold.co/300x200/e2e8f0/64748b?text=نموذج+عمل'">`).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <div class="action-buttons-row">
+                    <button class="btn-call" onclick="handleCallAction('${tech.phone}')">
+                        <i class="fa-solid fa-phone"></i> اتصال بالموبايل
+                    </button>
+                    <button class="btn-whatsapp" onclick="handleWhatsAppAction('${tech.phone}', '${tech.name}')">
+                        <i class="fa-brands fa-whatsapp"></i> مراسلة واتساب
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('profileModal').classList.add('active');
+        }
+
+        function handleCallAction(phone) {
+            showToast(`جاري الاتصال بالفني على الرقم: ${phone}`);
+            window.location.href = `tel:${phone}`;
+        }
+
+        function handleWhatsAppAction(phone, name) {
+            showToast(`جاري فتح محادثة واتساب مع ${name}`);
+            const msg = encodeURIComponent(`السلام عليكم ${name}، شفت إعلانك على تطبيق خدماتك وأريد أستفسر عن خدمة.`);
+            window.open(`https://wa.me/964${phone.substring(1)}?text=${msg}`, '_blank');
+        }
+
+        function openAddModal() {
+            document.getElementById('addModal').classList.add('active');
+        }
+
+        function openReadmeModal() {
+            document.getElementById('readmeModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function closeModalOnOutsideClick(event, modalId) {
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal('profileModal');
+                closeModal('addModal');
+                closeModal('readmeModal');
+            }
+        });
+
+        function toggleMobileDrawer() {
+            document.getElementById('mobileDrawer').classList.toggle('open');
+        }
+
+        function handleAddFormSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('formName').value.trim();
+            const phone = document.getElementById('formPhone').value.trim();
+            const trade = document.getElementById('formTrade').value;
+            const gov = document.getElementById('formGov').value;
+            const region = document.getElementById('formRegion').value;
+            const bio = document.getElementById('formBio').value.trim();
+            const avatar = document.getElementById('formAvatar').value.trim() || `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=2563EB&color=fff`;
+
+            const newTech = {
+                id: Date.now(),
+                name,
+                trade,
+                gov,
+                region,
+                phone,
+                rating: 5.0,
+                reviewCount: 1,
+                isAvailable: true,
+                avatar,
+                bio,
+                payments: ["نقدي"],
+                gallery: [
+                    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&q=80"
+                ]
+            };
+
+            state.technicians.unshift(newTech);
+            closeModal('addModal');
+            document.getElementById('addProfessionForm').reset();
+            
+            resetAllFilters();
+            showToast("تمت إضافة مهنتك بنجاح! ظهرت بياناتك في أعلى القائمة لهذه الجلسة.");
+            document.getElementById('techniciansSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i> ${message}`;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                toast.style.transition = 'all 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
